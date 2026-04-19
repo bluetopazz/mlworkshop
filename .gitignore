@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+
+artifacts_transformer/
+artifacts_500m_kb/
