@@ -25,6 +25,7 @@ The current transformer stack is promising, but it is still much closer to a str
 
 - `RAW_DOCUMENTS` is empty, so the curated local/domain signal is effectively absent.
 - Local-corpus construction is manual rather than repo-aware; the notebook does not leverage `README.md`, `agents.md`, or notebook markdown as structured local data.
+- FineWeb Edu had drifted out of the active helper-layer pipeline, which meant the broad pretraining bucket was no longer backed by a real external educational corpus.
 - Deduplication is exact-hash only; there is no near-duplicate or contamination audit.
 - The train/val split is positional over one flat stream, with no domain-slice eval construction.
 - There is no explicit reasoning/math/code/science eval pack.
@@ -83,6 +84,7 @@ The scientific notebooks should remain mostly unchanged. They already express th
    - lightweight verifier/outcome scoring
 5. Upgrade dashboards to interactive Plotly-based research views with instability and systems metrics.
 6. Make the local corpus recipe repo-aware so the transformer's curated data is not effectively empty.
+7. Restore FineWeb Edu as the main broad pretraining source and keep repo-local data in the specialization role.
 
 ## What Should Be Deferred
 
@@ -121,7 +123,9 @@ That combination is what this refactor should target.
 The best next-step stack for this repo is:
 
 1. strong dense decoder-only baseline
-2. optional sparse MoE variant on the same scaffold
-3. curated SFT and preference/reward utilities
-4. interactive dashboard layer
-5. ablation-driven iteration rather than architecture ideology
+2. FineWeb Edu as the default broad tokenizer/base corpus
+3. repo-local science/systems text for adaptation, evaluation, and post-training
+4. optional sparse MoE variant on the same scaffold
+5. curated SFT and preference/reward utilities
+6. interactive dashboard layer
+7. ablation-driven iteration rather than architecture ideology
