@@ -57,6 +57,15 @@ from .training import (
     set_seed,
     write_launch_bundle,
 )
+from .tokenization import (
+    build_phase_token_artifacts,
+    encode_text_file_to_tokens,
+    load_sentencepiece_processor,
+    sample_tokenizer_corpus,
+    save_token_manifest,
+    split_token_array,
+    train_or_load_sentencepiece,
+)
 
 __all__ = [
     "CorpusRecipe",
@@ -104,4 +113,11 @@ __all__ = [
     "summarize_corpus_sources",
     "weighted_phase_lines",
     "write_launch_bundle",
+    "build_phase_token_artifacts",
+    "encode_text_file_to_tokens",
+    "load_sentencepiece_processor",
+    "sample_tokenizer_corpus",
+    "save_token_manifest",
+    "split_token_array",
+    "train_or_load_sentencepiece",
 ]
